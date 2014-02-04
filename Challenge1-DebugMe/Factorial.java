@@ -6,15 +6,21 @@
  * tests. Hint sometimes an 'int' just 'aint big enough.
  * 
  * @see Factorial-ReadMe.txt for details on how to complete this program.
- * @author insert-your-netid-here
+ * @author yangeng2
  */
 public class Factorial {
 	public static void main(String[] args) {
 		int max = 0;
+		long factorial = 1;
 		System.out.println("Enter a number between 1 and 20 inclusive.");
+		max = TextIO.getlnInt();
 		while (max < 1 || max >= 21) {
+			System.out.println("Enter a number between 1 and 20 inclusive.");
 			max = TextIO.getlnInt();
 		}
-		TextIO.putln(42);
+		for (int i = 1; i <= max; i++)
+			factorial = factorial * i;
+		
+		System.out.println(max + "! = " + factorial);
 	}
 }
