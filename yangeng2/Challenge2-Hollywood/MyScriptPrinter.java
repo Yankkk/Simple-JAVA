@@ -14,10 +14,12 @@ public class MyScriptPrinter {
 		boolean output=false; //Set to true when we find the desired character
 		String name=""; // Only print lines for this character
 		boolean in = false;
+		int length;
 		
 		TextIO.putln("Which character's lines would you like? (NEO,MORPHEUS,ORACLE)");
 		name = TextIO.getln();
 		name = name.toUpperCase();
+		length = name.length();
 
 		TextIO.readFile("thematrix.txt"); // stop reading from the keyboard- use the script
 
@@ -32,6 +34,8 @@ public class MyScriptPrinter {
 			String line = TextIO.getln(); // Read the next line
 			
 			line = line.trim();
+			int len = line.length();
+			String line1;
 		
 			//TODO: If it's a blank line set 'output' to false
 			//TODO: Correct the output format (see ScriptPrinter.txt example output)
@@ -39,11 +43,15 @@ public class MyScriptPrinter {
 
 			if (line.indexOf(name) == 0)
 				output = true; // We found the character's name, time to start printing their lines
-			if (line.equals(name) || line.equals(name + " (WOMAN)")) 
-				in = false;
+			if (len >= length){
+				line1 = line.substring(0, length);
+				if (line1.equals(name)) 
+					in = false;
+				else
+					in = true;
+			}
 			else
-			    in = true;
-			
+				in = true;
 			if (line.isEmpty()){
 				output = false;
 				in = false;
