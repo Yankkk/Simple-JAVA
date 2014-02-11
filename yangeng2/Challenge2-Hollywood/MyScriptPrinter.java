@@ -37,9 +37,9 @@ public class MyScriptPrinter {
 			//TODO: Correct the output format (see ScriptPrinter.txt example output)
 			//TODO: Re-order the three if statements so the output is correct
 
-			if (line.indexOf(name) >= 0)
+			if (line.indexOf(name) == 0)
 				output = true; // We found the character's name, time to start printing their lines
-			if (line.equals(name)) 
+			if (line.equals(name) || line.equals(name + " (WOMAN)")) 
 				in = false;
 			else
 			    in = true;
