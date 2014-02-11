@@ -1,0 +1,11 @@
+Path: work/students/yangeng2/Challenge1-DebugMe
+URL: https://subversion.ews.illinois.edu/svn/sp14-cs125/yangeng2/Challenge1-DebugMe
+Repository Root: https://subversion.ews.illinois.edu/svn/sp14-cs125
+Repository UUID: 537a75bb-5e67-4b0e-a1e2-60a231fbe4ec
+Revision: 7783
+Node Kind: directory
+Schedule: normal
+Last Changed Author: yangeng2
+Last Changed Rev: 4200
+Last Changed Date: 2014-02-04 12:16:20 -0600 (Tue, 04 Feb 2014)
+
