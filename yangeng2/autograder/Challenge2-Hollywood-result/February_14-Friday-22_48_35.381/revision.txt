@@ -1,0 +1,11 @@
+Path: work/students/yangeng2/Challenge2-Hollywood
+URL: https://subversion.ews.illinois.edu/svn/sp14-cs125/yangeng2/Challenge2-Hollywood
+Repository Root: https://subversion.ews.illinois.edu/svn/sp14-cs125
+Repository UUID: 537a75bb-5e67-4b0e-a1e2-60a231fbe4ec
+Revision: 10391
+Node Kind: directory
+Schedule: normal
+Last Changed Author: yangeng2
+Last Changed Rev: 7866
+Last Changed Date: 2014-02-11 12:08:17 -0600 (Tue, 11 Feb 2014)
+
