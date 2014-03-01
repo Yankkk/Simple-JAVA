@@ -83,7 +83,6 @@ public class RainGame {
 			
 			for(int i=0;i < user.length();i++) {
 				char c = user.charAt(i);
-				System.out.println(c);
 				
 				if(c == 'Y' || c == 'y'){
 					    level = 1 ;
