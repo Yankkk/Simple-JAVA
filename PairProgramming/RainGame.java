@@ -12,7 +12,7 @@ public class RainGame {
 	
 		int x=0, y=0, dx=0, dy=0, score = 5, level = 0, second = 90;
 		String text = "";
-		boolean first = false;
+		boolean first = true;
 		// long startTime =System.currentTimeMillis();
 		
 		Zen.setFont("Helvetica-64");
@@ -50,9 +50,10 @@ public class RainGame {
 		
 			
 			//
-			if (score == 5 && level == 0){
+			if (score == 5 && level == 0 && first){
 				Zen.setColor(0,0,255);
 				Zen.drawText("Skip? Enter Y or N", 0, y);
+				
 			
 			}
 			
@@ -87,13 +88,14 @@ public class RainGame {
 				if(c == 'Y' || c == 'y'){
 					    level = 1 ;
 					    second -=10;
-		                first = true;
+					    first = false;
+		            
 					}
 				else if(c == 'N' || c == 'n'){
 					
 					    level = 0;
 					    second = 90;
-					    first = true;
+					    first = false;
 					
 					}
 					
