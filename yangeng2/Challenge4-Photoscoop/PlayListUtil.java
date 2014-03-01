@@ -2,7 +2,7 @@
 /**
  * yangeng2
  * 
- * @author angrave
+ * @author angrave, yangeng2
  * 
  */
 public class PlayListUtil {
@@ -21,7 +21,7 @@ public class PlayListUtil {
 				TextIO.putln("" + (j + 1) + ". " + list[j]);
 		    }
 		}
-		else{
+		else if (maximum > 0){
 			for (int i = 0; i < maximum; i++){
 				TextIO.putln("" + (i + 1) + ". " + list[i]);
 		    }
