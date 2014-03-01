@@ -10,20 +10,35 @@ public class RainGame {
 		// Do not put your name or your UIN. 
 		// REMEMBER TO COMMIT this file...
 	
-		int x=0, y=0, dx=0, dy=0, score = 0, level = 0, second = 90;
+		int x=0, y=0, dx=0, dy=0, score = 5, level = 0, second = 90;
 		String text = "";
-		boolean first =true;
+		boolean first = false;
 		// long startTime =System.currentTimeMillis();
 		
 		Zen.setFont("Helvetica-64");
 		while (Zen.isRunning()) {
 
 			if (text.length() == 0) {
-				x = 0;
-				y = Zen.getZenHeight() / 2;
-				dx = 2;
-				dy = 0;
-				text = "" + (int) (Math.random() * 999);
+				x = Zen.getZenWidth() / 2;
+				y = 0;
+				dx = 0;
+				dy = 2;
+			
+				text = "" + (int) (Math.random() * 999) + (char) ((int)(Math.random() * 26) + 'a');
+				
+				char arr[] = new char[text.length()];
+				for (int i = 0; i < text.length(); i++){
+					arr[i] = text.charAt(i);
+				}
+				int index = (int) ((text.length()-1) * Math.random());
+				char temp = arr[index];
+				arr[index] = arr[text.length()-1];
+				arr[text.length() - 1] = temp;
+				
+				text = "";
+				for (int j = 0; j < arr.length; j++){
+					text += arr[j];
+				}
 				// long elapsed = System.currentTimeMillis() - startTime;
 				// startTime = System.currentTimeMillis();
 				// score += 3000 / elapsed;
@@ -35,9 +50,9 @@ public class RainGame {
 		
 			
 			//
-			if (score == 0 && level == 0 && first){
+			if (score == 5 && level == 0){
 				Zen.setColor(0,0,255);
-				Zen.drawText("Skip? Enter Y or N", x, y);
+				Zen.drawText("Skip? Enter Y or N", 0, y);
 			
 			}
 			
@@ -45,7 +60,7 @@ public class RainGame {
 			
 			else if (score <= -50 && level == 1){
 				Zen.setColor(255, 0, 0);
-				Zen.drawText("DEAD", x , y);
+				Zen.drawText("GAME OVER", x , y);
 				break;
 			}
 			else{
@@ -68,23 +83,36 @@ public class RainGame {
 			
 			for(int i=0;i < user.length();i++) {
 				char c = user.charAt(i);
-				if (user.length() == 1 && c == 'Y'){
-					level ++ ;
-					second -=10;
-					score = 0;
-				}
-				if(user.length() == 1 && c == 'N'){
-					score = 0;
-				}
+				System.out.println(c);
+				
+				if(c == 'Y' || c == 'y'){
+					    level = 1 ;
+					    second -=10;
+		                first = true;
+					}
+				else if(c == 'N' || c == 'n'){
 					
-				else if(c == text.charAt(0)){
+					    level = 0;
+					    second = 90;
+					    first = true;
+					
+					}
+					
+					
+			    if(c == text.charAt(0)){
 					text = text.substring(1,text.length());// all except first character
 					score += 10;
 					
-				}
-				else 
-					score -=5;
+				  }
 				
+				else {
+					//if(first){
+						//score = 0;
+						//first = false;
+					//}
+					//else
+						score -=5;
+				}
 			}
 			if (score >= 100){
 				level ++;
