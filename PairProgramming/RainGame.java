@@ -130,8 +130,8 @@ public class RainGame {
 				second += 10;
 			}
 			
-			if (x > Zen.getZenWidth()){
-				x = 0;
+			if (y > Zen.getZenHeight()){
+				y = 0;
 				score -=20;
 			}
 			Zen.sleep(second);// sleep for 90 milliseconds
