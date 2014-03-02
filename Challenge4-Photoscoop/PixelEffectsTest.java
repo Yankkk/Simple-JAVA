@@ -133,7 +133,7 @@ public class PixelEffectsTest extends TestCase {
 	public void testMerge() {
 		int[][] source =     { { 0, 0x44, 0x300, 0x660000 } };
 		int[][] background = { { 2, 4,    0x600, 2 } };
-		int[][] expected =   { { 1, 0x24, 0x400 , 0x330001 } };
+		int[][] expected =   { { 1, 0x24, 0x400, 0x330001 } };
 		int[][] actual = PixelEffects.merge(source, background);
 		assertEntriesEqual(expected, actual);
 		assertSourceCopiedAndUnchanged(source,new int[][]  { { 0, 0x44, 0x300, 0x660000 } },actual);
