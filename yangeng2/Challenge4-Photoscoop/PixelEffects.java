@@ -4,7 +4,7 @@
  *
  * Todo: Put your netid (i.e. username) in the line below
  * 
- * @author put-your-netid-here
+ * @author yangeng2
  */
 public class PixelEffects {
 
@@ -12,7 +12,13 @@ public class PixelEffects {
 	public static int[][] copy(int[][] source) {
 		// Create a NEW 2D integer array and copy the colors across
 		// See redeye code below
-		return null; // Fix Me
+		int[][] newImage = new int[source.length][source[0].length];
+		for (int i = 0; i<source.length; i++){
+			for (int j = 0; j < source[0].length; j++){
+				newImage[i][j] = source[i][j];
+			}
+		}
+		return newImage; // Fix Me
 	}
 	/**
 	 * Resize the array image to the new width and height
@@ -24,7 +30,16 @@ public class PixelEffects {
 	 * @return
 	 */
 	public static int[][] resize(int[][] source, int newWidth, int newHeight) {
-		return null; // Fix Me
+		int[][] newImage = new int[newWidth][newHeight];
+		double widthnum = (double)source.length / newWidth;
+		double heightnum =(double)source[0].length / newHeight;
+		
+		for (int i =0; i < newWidth; i++){
+			for (int j = 0; j < newHeight; j++){
+				newImage[i][j] = source[(int)(widthnum * i)][(int)(heightnum * j)];
+			}
+		}
+		return newImage; // Fix Me
 		// Hints: Use two nested for loops between 0... newWidth-1 and 0.. newHeight-1 inclusive.
 		// Hint: You can just use relative proportion to calculate the x (or y coordinate)  in the original image.
 		// For example if you're setting a pixel halfway across the image, you should be reading half way across the original image too.
@@ -35,7 +50,7 @@ public class PixelEffects {
 	 * delegate the work to resize()!
 	 */
 	public static int[][] half(int[][] source) {
-		return null; // Fix Me
+		return resize(source, source.length/2, source[0].length/2); // Fix Me
 	}
 	
 	/**
@@ -49,22 +64,42 @@ public class PixelEffects {
 	 * @return the resized image
 	 */
 	public static int[][] resize(int[][] source, int[][] reference) {
-		return null; // Fix Me
+		return resize(source, reference.length, reference[0].length) ; // Fix Me
 	}
 
 	/** Flip the image vertically */
 	public static int[][] flip(int[][] source) {
-		return null;// Fix Me
+		int[][] newImage = new int[source.length][source[0].length];
+		
+		for(int i = 0; i < source.length; i++){
+			for(int j = 0; j < source[0].length; j ++){
+				newImage[i][j] = source[i][source[0].length - 1 -j];
+				}
+		}
+		return newImage;// Fix Me
 	}
 
 	/** Reverse the image horizontally */
 	public static int[][] mirror(int[][] source) {
-		return null;// Fix Me
+		int[][] newImage = new int[source.length][source[0].length];
+		
+		for(int i = 0; i < source.length; i++){
+			for(int j = 0; j < source[0].length; j ++){
+				newImage[i][j] = source[source.length -1 - i][j];
+			}
+		}
+		return newImage;// Fix Me
 	}
 
 	/** Rotate the image */
 	public static int[][] rotateLeft(int[][] source) {
-		return null;
+		int[][] newImage = new int[source[0].length][source.length];
+		for(int i = 0; i < newImage.length; i++){
+			for(int j = 0; j< newImage[0].length; j ++){
+				newImage[i][j] = source[newImage[0].length-1-j][i];
+			}
+		}
+		return newImage;
 	}
 
 	/** Merge the red,blue,green components from two images */
@@ -72,8 +107,15 @@ public class PixelEffects {
 		// The output should be the same size as the input. Scale (x,y) values
 		// when reading the background
 		// (e.g. so the far right pixel of the source is merged with the
-		// far-right pixel ofthe background).
-		return sourceA;
+		// far-right pixel of the background).
+		sourceB = resize(sourceB, sourceA);
+		int[][] newImage = new int[sourceA.length][sourceA[0].length];
+		for (int i = 0; i < sourceA.length; i++){
+			for(int j = 0; j< sourceA[0].length; j++){
+				newImage[i][j] = (sourceA[i][j] + sourceB[i][j]) / 2;
+			}
+		}
+		return newImage;
 	}
 
 	/**
@@ -84,7 +126,16 @@ public class PixelEffects {
 		// If the image has a different size than the background use the
 		// resize() method
 		// create an image the same as the background size.
-		return foreImage;
+		int[][] newImage = resize(foreImage, backImage);
+		for (int i = 0; i < newImage.length; i++){
+			for(int j = 0; j < newImage[0].length; j++){
+				int number = (newImage[i][j] >> 8)- ((newImage[i][j] >> 16) << 8);
+				if (number > 0){
+					newImage[i][j] = backImage[i][j];
+				}
+			}
+		}
+		return newImage;
 	}
 
 	/** Removes "redeye" caused by a camera flash. sourceB is not used */
@@ -113,6 +164,19 @@ public class PixelEffects {
 		
 		// Does not ask for any user input and returns a new 2D array
 		// Todo: remove this return null
-		return null;
+		
+		source = resize(source, sourceB);
+		int[][] newImage = new int[source.length][source[0].length];
+		for (int i = 0; i < source.length; i++){
+			for(int j = 0; j < source[0].length; j++){
+				if(i / 2 == 0){
+					newImage[i][j] = sourceB[i][j];
+				}
+				else
+					newImage[i][j] = source[i][j];
+					
+			}
+		}
+		return newImage;
 	}
 }
