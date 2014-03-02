@@ -112,7 +112,10 @@ public class PixelEffects {
 		int[][] newImage = new int[sourceA.length][sourceA[0].length];
 		for (int i = 0; i < sourceA.length; i++){
 			for(int j = 0; j< sourceA[0].length; j++){
-				newImage[i][j] = (sourceA[i][j] + sourceB[i][j]) / 2;
+				int red = (RGBUtilities.toRed(sourceA[i][j]) + RGBUtilities.toRed(sourceB[i][j])) / 2;
+				int green = (RGBUtilities.toGreen(sourceA[i][j]) + RGBUtilities.toGreen(sourceB[i][j])) / 2;
+				int blue = (RGBUtilities.toBlue(sourceA[i][j]) + RGBUtilities.toBlue(sourceB[i][j])) / 2;
+				newImage[i][j] = RGBUtilities.toRGB(red, green, blue);
 			}
 		}
 		return newImage;
