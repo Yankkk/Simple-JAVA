@@ -5,7 +5,7 @@
  * 
  * Todo: Put your netid (i.e. username) in the line below
  * 
- * @author put-your-netid-here
+ * @author yangeng2
  */
 public class Effects {
 	/**
@@ -32,8 +32,31 @@ public class Effects {
 		// hint: for some commands the string is slightly different than the method name
 		// hint: remember to use string.equals not == to compare strings
 		// This message and the exception should not occur if you match all possible command strings
-		System.out.println("Todo: Implement Effects.process("+cmd+")");
-		throw new RuntimeException("Unknown command:"+cmd);
+		
+		if (cmd.equals("copy"))
+			return PixelEffects.copy(source);
+		else if (cmd.equals("resize"))
+			return PixelEffects.resize(source, background);
+		else if (cmd.equals("half"))
+			return PixelEffects.half(source);
+		else if (cmd.equals("flip"))
+			return PixelEffects.flip(source);
+		else if (cmd.equals("merge"))
+			return PixelEffects.merge(source, background);
+		else if (cmd.equals("mirror"))
+			return PixelEffects.mirror(source);
+		else if (cmd.equals("rotate"))
+			return PixelEffects.rotateLeft(source);
+		else if (cmd.equals("key"))
+			return PixelEffects.chromaKey(source, background);
+		else if (cmd.equals("funky"))
+			return PixelEffects.funky(source, background);
+		else if (cmd.equals("redeye"))
+			return PixelEffects.redeye(source, background);
+		else{
+			System.out.println("Todo: Implement Effects.process("+cmd+")");
+		    throw new RuntimeException("Unknown command:"+cmd);
+		}
 	}// end method
 
 } // end class
