@@ -1,6 +1,6 @@
 //UIUC CS125 SPRING 2014 MP. File: RainGame.java, CS125 Project: PairProgramming, Version: 2014-02-24T21:11:32-0600.531798000
 /**
- * @author yangeng2, qliu27   @reviewed lmarlow2 sseo10
+ * @author yangeng2, qliu27   @reviewed lmarlow2, sseo10
  */
 public class RainGame {
 
