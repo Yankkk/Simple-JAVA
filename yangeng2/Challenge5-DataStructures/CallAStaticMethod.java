@@ -4,6 +4,8 @@
  * justified to right by prepending the text with '.' characters The minimum
  * width of the line including padding is 40 characters. See the test case for
  * example input and expected output.
+ * 
+ * @author yangeng2
  */
 class CallAStaticMethod {
 
@@ -13,7 +15,10 @@ class CallAStaticMethod {
 			String line = TextIO.getln();
 			// Use ExampleClassMethods
 			// 'isEmailAddress' and 'createPadding' to complete this method
-			TextIO.putln(line);
+			if(ExampleClassMethods.isEmailAddress(line)){
+				
+				TextIO.putln(ExampleClassMethods.createPadding('.', 40-line.length()) + line);
+				}
 		}
 
 	}
