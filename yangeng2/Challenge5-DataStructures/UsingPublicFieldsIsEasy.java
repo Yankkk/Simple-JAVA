@@ -10,10 +10,31 @@
  *   where a,b, and M are replaced with the numerical values of a, b and the multiplication of a and b.
  * Your code will create a SimplePublicTriple, initializes the three fields and return a reference to the SimplePublicTriple object.
  *
+ *@author yangeng2
  */
 public class UsingPublicFieldsIsEasy {
 	
 	public static SimplePublicTriple analyze(SimplePublicPair in) {
-		
+		int i = in.a;
+		int j = in.b;
+		int x;
+		int y;
+		String description;
+		if(i>j){
+			x = j;
+			y = i;
+			
+		}
+		else {
+			x = i;
+			y = j;
+		}
+		description =i + "*" + j + "=" +i * j;
+
+		SimplePublicTriple out = new SimplePublicTriple();
+		out.description = description;
+		out.x = x;
+		out.y = y;
+		return out;
 	}
 }
