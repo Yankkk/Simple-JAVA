@@ -4,17 +4,19 @@
  * There are several errors in the code below
  *
  * Hint: Get the Geocache class working and passing its tests first.
+ * 
+ * @author yangeng2
  */
 public class GeocacheList {
 	private Geocache[] data = new Geocache[0];
 	private int size = 0;
 
 	public Geocache getGeocache(int i) {
-		return null;
+		return data[i];
 	}
 
 	public int getSize() {
-		return 0;
+		return data.length;
 	}
 
 	public GeocacheList() {
@@ -23,22 +25,38 @@ public class GeocacheList {
 	public GeocacheList(GeocacheList other, boolean deepCopy) {
 		data = new Geocache[other.data.length];
 		size = other.size;
-		
+		if(deepCopy){
+			for(int i = 0; i < data.length; i++){
+				data[i] = new Geocache(other.data[i].getX(),other.data[i].getY());
+			}
+		}
+		else{
+			for (int j = 0; j < data.length; j++){
+				data[j] = other.data[j];
+				}
+		}
+			
 	}
 
 	public void add(Geocache p) {
 		size++;
 		if (size > data.length) {
 			Geocache[] old = data;
-			data = new Geocache[size * 2];
+			data = new Geocache[size];
 			for (int i = 0; i < old.length; i++)
 				data[i] = old[i];
 		}
 		data[size-1] = p;
 	}
 
-	public Geocache removeFromTop() {
-		return null;
+	public Geocache[] removeFromTop() {
+		size--;
+		Geocache[] old = data;
+		data = new Geocache[size];
+		for(int i = 0; i < data.length; i++){
+			data[i] = old[i+1];
+		}
+		return data;
 	}
 
 	public String toString() {
