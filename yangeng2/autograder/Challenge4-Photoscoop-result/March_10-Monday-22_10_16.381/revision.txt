@@ -1,0 +1,11 @@
+Path: work/students/yangeng2/Challenge4-Photoscoop
+URL: https://subversion.ews.illinois.edu/svn/sp14-cs125/yangeng2/Challenge4-Photoscoop
+Repository Root: https://subversion.ews.illinois.edu/svn/sp14-cs125
+Repository UUID: 537a75bb-5e67-4b0e-a1e2-60a231fbe4ec
+Revision: 22864
+Node Kind: directory
+Schedule: normal
+Last Changed Author: angrave
+Last Changed Rev: 19232
+Last Changed Date: 2014-03-04 10:19:23 -0600 (Tue, 04 Mar 2014)
+
