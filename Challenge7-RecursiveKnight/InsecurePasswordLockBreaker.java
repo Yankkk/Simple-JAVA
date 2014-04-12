@@ -1,4 +1,9 @@
 //UIUC CS125 SPRING 2014 MP. File: InsecurePasswordLockBreaker.java, CS125 Project: Challenge7-RecursiveKnight, Version: 2014-04-11T09:33:42-0500.688996000
+/**
+ * 
+ * @author yangeng2
+ *
+ */
 public class InsecurePasswordLockBreaker {
 
 	public static char[] breakLock(InsecurePasswordLock lock) {
@@ -20,11 +25,38 @@ public class InsecurePasswordLockBreaker {
 		// Advanced Code-Golf: Can you complete this method in 8 lines
 		// (excluding the top and bottom given
 		// lines and after autoformating your code)
-		
+
 		// Crazy Instructor level:
-		// I can write a complete albeit-inefficient solution using single while loop :-)
+		// I can write a complete albeit-inefficient solution using single while
+		// loop :-)
 		// expression: while (____){/*NoCodeHere*/}
-		return key;
+		key = "ASECRETTHATYOUWILLNOTGUESSTODAY".toCharArray();
+		if (lock.open(key) == key.length)
+			return key;
+		else {
+			int in = 0;
+			for(int i = 30; i<=50; i++){
+				key = new char[i];
+				if(lock.open(key)!=-1){
+					in = i;
+					break;
+
+				}
+			}
+			key = new char[in];
+			for(int i = 0; i< in; i++)
+				key[i] = 'A';
+			
+			while (lock.open(key) != key.length && lock.open(key)!=-1) {
+				int index = lock.open(key);
+				key[index] = (char)(key[index] + 1);
+
+			}
+			return key;
+		}
+
+		//return key;
+
 	}
 
 	public static void main(String[] args) {
