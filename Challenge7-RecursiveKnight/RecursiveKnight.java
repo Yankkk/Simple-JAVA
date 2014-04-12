@@ -1,4 +1,9 @@
 //UIUC CS125 SPRING 2014 MP. File: RecursiveKnight.java, CS125 Project: Challenge7-RecursiveKnight, Version: 2014-04-11T09:33:42-0500.688996000
+/**
+ * 
+ * @author yangeng2
+ *
+ */
 public class RecursiveKnight {
 
 	/**
@@ -29,5 +34,23 @@ public class RecursiveKnight {
 	 */
 	public static void explore(boolean[][] visited, int x, int y, int[][] steps, int step) {
 	//Todo: Implement RecursiveKnight.explore
-		throw new RuntimeException("Not yet Implemented!"); // you can remove this line!
+		if(x >= visited.length || y >= visited[0].length || x<0 || y<0)
+			return;
+		if(visited[x][y] && step > 0)
+			return;
+		if(steps[x][y] > 0 && steps[x][y] < step)
+			return;
+		
+		steps[x][y] = step;
+		step ++;
+		
+		explore(visited, x+1, y+2,steps, step);
+		explore(visited, x+1, y-2,steps, step);
+		explore(visited, x-1, y+2,steps, step);
+		explore(visited, x-1, y-2,steps, step);
+		explore(visited, x+2, y+1,steps, step);
+		explore(visited, x+2, y-1,steps, step);
+		explore(visited, x-2, y+1,steps, step);
+		explore(visited, x-2, y-1,steps, step);
+		
 }	}
