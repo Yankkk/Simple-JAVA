@@ -17,7 +17,7 @@ public class GridCounting {
 	public static int count(int x,int y, int tx, int ty) {
 		if(x > tx || y > ty)
 			return 0;
-		if(x==tx)
+		if(x==tx && y == ty)
 			return 1;
 		if(y == ty && x + 2 == tx)
 			return 2;
