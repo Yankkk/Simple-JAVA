@@ -1,0 +1,11 @@
+Path: work/students/yangeng2/Challenge7-RecursiveKnight
+URL: https://subversion.ews.illinois.edu/svn/sp14-cs125/yangeng2/Challenge7-RecursiveKnight
+Repository Root: https://subversion.ews.illinois.edu/svn/sp14-cs125
+Repository UUID: 537a75bb-5e67-4b0e-a1e2-60a231fbe4ec
+Revision: 36995
+Node Kind: directory
+Schedule: normal
+Last Changed Author: yangeng2
+Last Changed Rev: 34683
+Last Changed Date: 2014-04-15 00:25:26 -0500 (Tue, 15 Apr 2014)
+
